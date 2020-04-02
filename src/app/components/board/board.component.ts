@@ -39,10 +39,28 @@ export class BoardComponent implements OnInit {
   }
 
   changeTurn() {
-    /* to Complete **/
+    if (this.turn === 'x') {
+      this.turn = 'o';
+    } else {
+      this.turn = 'x';
+    }
   }
 
   checkWinner() {
-    /* To complete **/
+    for (let i = 0; i < 9; i++) {
+      if (i >= 0 && i < 3) {
+        if (this.cells[0] === 'o') {
+          if (this.cells[1] === 'o' && this.cells[2] === 'o') {
+            this.winner = 'o';
+          }
+        } else {
+          if (this.cells[0] === 'x') {
+            if (this.cells[1] === 'x' && this.cells[2] === 'x') {
+              this.winner = 'x';
+            }
+          }
+        }
+      }
+    }
   }
 }
